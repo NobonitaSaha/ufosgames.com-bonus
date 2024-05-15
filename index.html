@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ufos Games</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta name="description" content="Free Casino Games">
+    <meta name="keywords" content="Free Online Casino, Online Slots">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+     <!-- ====================== Cookie Fonts =========================== -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+ 
+     <!-- ====================== Cookie PopUp Start ========================== -->
+         <div class="cookie-overlay show-overlay"></div>
+         <div class="cookie-overlay-2 show-overlay-2"></div>
+         <div class="cookie-popup" id="cookiePopup">
+             <div class="cookie-description">
+                 <div class="cookie-text">
+                     <img src="images/cookie-img.webp" alt="cookie photo">
+                     <h3>Politica Sui Cookie</h3>
+                     <p>Utilizziamo i cookie per personalizzare i contenuti, personalizzare e misurare gli annunci e fornire un'esperienza utente migliore. Cliccando su accetta, accetti questo come descritto nella nostra politica sui cookie.</p>
+                 </div>
+                 <div class="cookie-btn">
+                     <div class="cookie-double-btn">
+                         <button onclick="acceptCookies()" class="cookie-accept">No, Grazie</button>
+                     </div>
+                     <div class="cookie-double-btn">
+                         <button onclick="acceptCookies()" class="cookie-cancel"><img src="images/cookie-i.png" alt="cookie-icon">Accetta</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ 
+ 
+       <style>
+          /* ---------------------------------- 
+             Cookie Popup CSS Start 
+          ------------------------------------- */
+          .cookie-popup {
+             display: none;
+             position: fixed;
+             left: 0;
+             right: 0;
+             background-color: #ffd9d8;
+             padding: 30px 20px;
+             top: 50%;
+             transform: translateY(-50%);
+             z-index: 1000;
+             color: #3b3e4a;
+             box-shadow: 0px 0px 40px 0px #ebaaaa75;
+             border-radius: 10px;
+         }
+ 
+         .cookie-popup.show {
+             display: block;
+             max-width: 500px;
+             margin: 0 auto;
+             text-align: center;
+             padding: 30px;
+         }
+ 
+         .cookie-text > img {
+            width: 100px;
+            height: auto;
+            margin: 0px 0px 10px 0px;
+            transform: rotate(-55deg);
+        }
+ 
+          .cookie-text > h3 {
+             color: #2e2e2e;
+             font-size: 27px;
+             font-weight: 400;
+             margin: 10px 0px 15px 0px;
+             letter-spacing: 0.6px;
+             font-family: 'Leckerli One', cursive;
+          }
+ 
+          .cookie-text > p {
+             font-size: 16px;
+             line-height: 28px;
+             font-style: normal;
+             font-weight: 700;
+             color: #505050;
+             font-family: "Lato", sans-serif;
+         }
+ 
+         button.cookie-cancel > img {
+             width: 24px;
+             margin: 0px 5px;
+             position: relative;
+             top: -1px;
+         }
+ 
+         .cookie-btn{
+             display: inline-flex;
+             gap: 15px;
+         }
+ 
+          .cookie-double-btn button {
+             font-size: 16px;
+             padding: 0px 50px;
+             border-radius: 50px;
+             font-weight: 600;
+             cursor: pointer;
+             user-select: none;
+             transition-duration: 0.2s;
+             transition-timing-function: ease-in-out;
+             border: none;
+             color: #0f0f0f;
+             outline: 0px;
+             width: 200px;
+             margin: 30px 0px 10px 0px;
+             font-family: "Lato", sans-serif;
+             background: #96969654;
+             height: 45px;
+          }
+ 
+         .cookie-double-btn button.cookie-cancel {
+             background: #e91e63;
+             color: #ffffff;
+             border: none;
+          }
+ 
+          button.cookie-accept:hover {
+             background: #2e2e2e;
+             letter-spacing: 0.6px;
+             color: #ffffff;
+         }
+ 
+          button.cookie-cancel:hover {
+             background: #2e2e2e;
+             letter-spacing: 0.4px;
+          }
+ 
+          .cookie-overlay {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-image: linear-gradient(#000000ef, #000000ef);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+             z-index: 999;
+             display: none;
+          }
+ 
+          .cookie-overlay-2 {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-image: linear-gradient(#000000c7, #000000c7);
+             backdrop-filter: blur(14px);
+             -webkit-backdrop-filter: blur(10px);
+             z-index: 999;
+             display: none;
+          }
+ 
+          .show-overlay {
+             display: block;
+          }
+ 
+          .show-overlay-2 {
+             display: block;
+          }
+ 
+ 
+          @media only screen and (max-width: 600px) and (min-width: 320px) {
+             .cookie-popup.show {
+                 margin: 0px 20px;
+                 padding: 30px 15px;
+             }
+ 
+             .cookie-btn {
+                display: inline-flex;
+                flex-direction: column-reverse;
+                align-items: unset;
+                gap: 0px;
+                margin-top: 15px;
+                width: 100%;
+            }
+ 
+             .cookie-text > p{
+                 margin-bottom: 15px;
+             }
+ 
+             .cookie-overlay{
+                display: none;
+             }
+ 
+             .cookie-double-btn button {
+                width: 100%;
+                margin: 5px 0px;
+             }
+ 
+             .cookie-text > img {
+                 width: 90px;
+                 height: auto;
+                 margin: 0px 0px 0px 0px;
+             }
+          }
+ 
+          @media only screen and (max-width: 850px) and (min-width: 768px) {
+             .cookie-popup.show {
+                margin: 0 auto;
+             }
+ 
+             .cookie-overlay-2{
+                display: none;
+             }
+          }
+          
+          @media only screen and (min-width: 1025px) {
+             .cookie-overlay-2 {
+                display: none;
+             }
+          }
+ 
+          /* ------------------------------------ 
+             Cookie Popup CSS End 
+          --------------------------------------- */
+       </style>
+ 
+ 
+       <script>
+          // ------------------- Cookie Popup JS Start -----------------------
+          document.addEventListener("DOMContentLoaded", function () {
+             if (!getCookie("acceptedCookies")) {
+                // Load background image of the popup first
+                document.querySelector(".cookie-overlay").classList.add("show-overlay");
+                document.querySelector(".cookie-overlay-2").classList.add("show-overlay-2");
+                document.getElementById("cookiePopup").classList.add("show");
+             } else {
+                // If cookies have already been accepted, remove the popup and overlay
+                document.querySelector(".cookie-overlay").classList.remove("show-overlay");
+                document.querySelector(".cookie-overlay-2").classList.remove("show-overlay-2");
+                document.getElementById("cookiePopup").classList.remove("show");
+             }
+          });
+ 
+          function acceptCookies() {
+             document.getElementById("cookiePopup").classList.remove("show");
+             document.querySelector(".cookie-overlay").classList.remove("show-overlay");
+             document.querySelector(".cookie-overlay-2").classList.remove("show-overlay-2");
+             setCookie("acceptedCookies", true, 30);
+ 
+             // Load content after accepting cookies
+             setTimeout(function () {
+                console.log("Content uploaded after 3 seconds");
+                // Add your code here to load website images and content
+             }, 3000);
+          }
+ 
+          function setCookie(name, value, days) {
+             var expires = "";
+             if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+             }
+             document.cookie = name + "=" + (value || "") + expires + "; path=/";
+          }
+ 
+          function getCookie(name) {
+             var nameEQ = name + "=";
+             var ca = document.cookie.split(';');
+             for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+             }
+             return null;
+          }
+          // ------------------- Cookie Popup JS End -----------------------
+       </script>
+       <!-- ==================== Cookie PopUp End ============================== -->
+</head>
+<body class="bg">
+
+
+
+<div class="pink p-1">
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav rgba-pink-light" id="myTopnav">
+    <a href="index.html"><img src="images/logo.png" alt="" class="img-fluid w-50 py-2"></a>
+    <a href="index.html" class="p-3 text-black-50">Home</a>
+    <a href="privacy.html" class="p-3 text-black-50">Privacy Policy</a>
+    <a href="terms.html" class="p-3">Terms & Conditions</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="font my-5 text-center">Introduction</h1>
+            <p class="mx-auto w-75 text-center">
+                Welcome to our site. We provide free to play games with no hidden charges. These games are perfect to kill
+                the leisure time. Visit us often to enjoy updated games every time as we updated our site regularly.
+                We would love to see you again. Happy Gaming!
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="font my-5 text-center">Check Free Games Below</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="p-md-5 mx-md-5 text-center text-lg-left">
+            <div class="row">
+                <div class="col-lg-6 px-3 d-flex align-item-stretch">
+                    <div class="card">
+                        <div class="card-body m-1">
+                            <div class="row">
+                                <div class="col-lg-7 d-flex mb-2 align-items-center">
+                                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        <img src="images/051%20Vicky%20Ventura.jpg" class="img-fluid z-depth-1"/>
+                                    </div>
+                                </div>
+                                <div
+                                        class="col-lg-5 text-muted d-flex flex-column justify-content-end pt-2">
+                                    <h2 class="mb-1 h3 font"><strong>Vicky Ventura</strong></h2>
+                                    <a href="1.html" class="btn text-white px-2">Play Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-3 d-flex align-item-stretch">
+                    <div class="card">
+                        <div class="card-body m-1">
+                            <div class="row">
+                                <div class="col-lg-7 d-flex mb-2 align-items-center">
+                                    <div
+                                            class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        <img
+                                                src="images/052%20Devil's%20Number.jpg"
+                                                class="img-fluid z-depth-1"
+                                                alt="woman avatar"/>
+                                    </div>
+                                </div>
+                                <div
+                                        class="col-lg-5 text-muted d-flex flex-column justify-content-end pt-2">
+                                    <h2 class="h3 font mb-1"><strong>Devil's Number</strong></h2>
+                                    <a href="2.html" class="btn text-white px-2">Play Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <section class="p-md-5 mx-md-5 text-center text-lg-left">
+            <div class="row">
+                <div class="col-lg-6 px-3 mb-3 d-flex align-item-stretch">
+                    <div class="card">
+                        <div class="card-body m-1">
+                            <div class="row mb-4">
+                                <div class="col-lg-7 d-flex mb-2 align-items-center">
+                                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        <img src="images/053%20Mystery%20Reels%20Megaways.jpg" class="img-fluid z-depth-1"/>
+                                    </div>
+                                </div>
+                                <div
+                                        class="col-lg-5 text-muted d-flex flex-column justify-content-end pt-2">
+                                    <h2 class="mb-1 h3 font"><strong>Mystery Reels Megaways</strong></h2>
+                                    <a href="3.html" class="btn text-white px-2">Play Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-3 mb-3 d-flex align-item-stretch">
+                    <div class="card">
+                        <div class="card-body m-1">
+                            <div class="row mb-4">
+                                <div class="col-lg-7 d-flex mb-2 align-items-center">
+                                    <div
+                                            class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        <img
+                                                src="images/054%20Spin%20Town.jpg"
+                                                class="img-fluid z-depth-1"
+                                                alt="woman avatar"/>
+                                    </div>
+                                </div>
+                                <div
+                                        class="col-lg-5 text-muted d-flex flex-column justify-content-end pt-2">
+                                    <h2 class="h3 font mb-1"><strong>Spin Town</strong></h2>
+                                    <a href="4.html" class="btn text-white px-2">Play Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<div class="footer rgba-pink-light">
+    <div class="px-3">
+        <div class="container">
+            <div class="row">
+                <img src="images/footerlogo.png" alt="" width="30%" class="my-2">
+            </div>
+            <div class="row font-small pb-3">
+                This is a FREE-TO-PLAY social casino games site where you use play credits only. This website does
+                NOT
+                offer
+                "real money" gambling opportunities or chance to win prizes or gifts. This site is intended for 18+
+                adults
+                only. Practicing at social casino site does NOT guarantee successes at "real money" gambling in
+                future.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</body>
+</html>
